@@ -66,7 +66,7 @@ function Chatbot() {
                             </div>
                         ))}
                         {loading && (
-                            <div className="message bot-message loading-dots">Thinking...</div>
+                            <div className="message bot-message loading-dots">Thinking</div>
                         )}
                     </div>
                     <div className="input-container">
