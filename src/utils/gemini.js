@@ -1,8 +1,9 @@
-import axios from "axios";
+import { GoogleGenAI } from "@google/genai";
 
-const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
-const API_URL = "https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent";
+// Initialize the GoogleGenAI client with your API key
+const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY }); // Ensure your API key is correctly set in your .env file
 
+// Function to ask Gemini
 export async function askGemini(prompt) {
     if (!prompt.trim()) {
         return "Please ask a valid question.";
@@ -11,21 +12,20 @@ export async function askGemini(prompt) {
     try {
         console.log("Making API request to Gemini...");
 
-        const response = await axios.post(`${API_URL}?key=${API_KEY}`, {
-            contents: [{ parts: [{ text: prompt }] }]
+        // Make the API call to generate content
+        const response = await ai.models.generateContent({
+            model: "gemini-2.0-flash",  // Specify the model you want to use
+            contents: prompt,           // Pass the prompt directly
         });
 
-        console.log("API response:", response.data); // Log API response for debugging
+        // Log the response for debugging
+        console.log("API response:", response);
 
-        // Ensure response structure is valid before accessing
-        if (response.data?.candidates?.[0]?.content?.parts?.[0]?.text) {
-            return response.data.candidates[0].content.parts[0].text;
-        } else {
-            console.warn("Unexpected API response format:", response.data);
-            return "Sorry, I couldn't understand that.";
-        }
+        // Return the generated text from Gemini
+        return response.text || "Sorry, I couldn't process that request. Please try again.";
     } catch (error) {
-        console.error("Error calling Gemini API:", error.response?.data || error.message);
+        // Log any errors for debugging
+        console.error("Error calling Gemini API:", error);
         return "Sorry, I couldn't process that request. Please try again.";
     }
 }

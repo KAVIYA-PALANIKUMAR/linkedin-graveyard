@@ -8,7 +8,7 @@
 
 /* Chat Icon */
 .chat-icon {
-    background-color: #ff4444; /* Red background */
+    background-color: #894545; /* Red background */
     color: white;
     width: 50px;
     height: 50px;
@@ -29,7 +29,7 @@
 /* Chat Container */
 .chat-container {
     background-color: #1a1a1a; /* Dark gray background */
-    border: 1px solid #ff4444; /* Red border */
+    border: 1px solid #140a0a; /* Red border */
     border-radius: 10px;
     width: 350px;
     height: 500px;
@@ -54,7 +54,7 @@
 /* Chat Header */
 .chat-header {
     background-color: #262626; /* Slightly lighter gray */
-    color: #ff4444; /* Red text */
+    color: #de6969; /* Red text */
     padding: 10px;
     text-align: center;
     font-size: 18px;
@@ -68,13 +68,13 @@
 .close-button {
     background: none;
     border: none;
-    color: #ff4444;
+    color: #c07070;
     font-size: 24px;
     cursor: pointer;
 }
 
 .close-button:hover {
-    color: #cc0000; /* Darker red on hover */
+    color: #aa5353; /* Darker red on hover */
 }
 
 /* Chat Box (Message Area) */
@@ -96,7 +96,7 @@
 
 /* User Messages */
 .user-message {
-    background-color: #ff4444; /* Red background for user messages */
+    background-color: #d86565; /* Red background for user messages */
     color: white;
     margin-left: auto; /* Align to the right */
 }
@@ -126,14 +126,14 @@
     display: flex;
     padding: 10px;
     background-color: #262626; /* Slightly lighter gray */
-    border-top: 1px solid #ff4444; /* Red border at the top */
+    border-top: 1px solid #150a0a; /* Red border at the top */
 }
 
 /* Input Field */
 .input-container input {
     flex: 1;
     padding: 8px;
-    border: 1px solid #ff4444; /* Red border */
+    border: 1px solid #120808; /* Red border */
     border-radius: 5px;
     background-color: #333; /* Dark gray background */
     color: white;

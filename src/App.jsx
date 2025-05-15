@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Chatbot from './Chatbot'; // Adjust the path as needed
+import backgroundImage from "./assets/R.jpeg"; 
+// Corrected image path
 
 const events = [
   { year: "09/2023", text: "I started LinkedIn", position: "left-[5%] top-[50%]" },
@@ -24,12 +26,18 @@ export default function LinkedInGraveyard() {
   };
 
   return (
-    <div className="bg-black min-h-screen text-red-500 flex flex-col items-center p-10">
-      <h1 className="text-5xl font-extrabold mb-14 text-red-600">
-        The <span className="text-white">LinkedIn</span> Graveyard🪦
+    <div
+      className="relative min-h-screen text-gray-200 flex flex-col items-center p-10 bg-cover bg-center"
+      style={{ backgroundImage: `url(${backgroundImage})` }} // Dynamically use the imported image path
+    >
+      {/* Optional dark overlay to ensure content is visible */}
+      <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
+
+      <h1 className="text-5xl font-extrabold mb-14 text-red-600 z-10">
+        The LinkedIn Graveyard
       </h1>
 
-      <div className="relative w-full max-w-5xl mb-20">
+      <div className="relative w-full max-w-5xl mb-20 z-10">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
           <div className="w-full h-32 flex justify-between items-center relative">
             <div className="absolute w-full h-1 bg-red-700 top-[50%]" />
@@ -49,7 +57,7 @@ export default function LinkedInGraveyard() {
                     animate={{ opacity: 1, y: 0 }}
                     className="bg-red-900 text-gray-200 p-4 rounded-lg shadow-xl whitespace-nowrap mt-2"
                   >
-                    {event.text}
+                    <span className="text-gray-400">{event.text}</span>
                     <div className="text-xs text-gray-400 mt-1">{event.year}</div>
                   </motion.div>
                 )}
@@ -62,19 +70,19 @@ export default function LinkedInGraveyard() {
       {/* 2FA Importance Box */}
       <Card className="bg-gray-900 text-white p-6 border border-red-700 shadow-2xl w-4/5 mb-16 relative overflow-hidden before:absolute before:inset-0 before:bg-red-900 before:opacity-20 before:blur-lg">
         <CardContent className="text-center relative z-10">
-          <motion.h2 
-            className="text-3xl font-extrabold text-red-500"
+          <motion.h2
+            className="text-3xl font-bold text-red-600"
             animate={{ scale: [1, 1.05, 1] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
+            transition={{ repeat: Infinity, duration: 2 }}
           >
             ⚠️ Why You Need 2FA?
           </motion.h2>
-          <p className="mt-4 text-gray-300 text-lg">
+          <p className="mt-4 text-white-10 text-lg">
             Protect your account from digital ghosts! 👻 <br />
             Enable Two-Factor Authentication before your LinkedIn meets the same fate!<br />
-            Please use the <b>Chatbot</b> for more  information.
+            Please use the <b>Chatbot</b> for more information.
           </p>
-          <p className="mt-3 text-lg text-red-400 italic animate-pulse">
+          <p className="mt-3 text-lg text-red-500 italic animate-pulse">
             Don't let hackers write your epitaph.
           </p>
         </CardContent>
@@ -84,9 +92,9 @@ export default function LinkedInGraveyard() {
       <div className="h-16"></div>
 
       {/* Bouquet Offering */}
-      <Card className="bg-gray-900 text-white p-8 border border-red-700 shadow-xl w-96">
+      <Card className="bg-gray-900 text-white p-8 border border-blue-700 shadow-xl w-96">
         <CardContent className="flex flex-col items-center">
-          <p className="mb-5 text-red-400 text-xl font-semibold text-center">
+          <p className="mb-5 text-red-600 text-xl font-semibold text-center">
             Offer a bouquet to the fallen LinkedIn accounts
           </p>
           <div
@@ -96,7 +104,7 @@ export default function LinkedInGraveyard() {
             <span>💐</span>
             <span> Better offer a Bouquet (or else... 👀)</span>
           </div>
-          <p className="mt-5 text-red-300 text-lg font-medium">Bouquets: {bouquetCount}</p>
+          <p className="mt-5 text-red-500 text-lg font-medium">Bouquets: {bouquetCount}</p>
         </CardContent>
       </Card>
 
