@@ -96,21 +96,25 @@ export default function LinkedInGraveyard() {
       <div className="h-16"></div>
 
       {/* Bouquet Offering */}
-      <Card className="bg-gray-900 text-white p-8 border border-blue-700 shadow-xl w-96">
-        <CardContent className="flex flex-col items-center">
-          <p className="mb-5 text-red-600 text-xl font-semibold text-center">
-            Offer a bouquet to the fallen LinkedIn accounts
-          </p>
-          <div
-            className="bg-gray-900 hover:bg-gray-800 text-white text-xl py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 cursor-pointer text-center flex items-center justify-center space-x-2"
-            onClick={() => setBouquetCount(prev => prev + 1)}  /* functional update */
-          >
-            <span>💐</span>
-            <span> Better offer a Bouquet (or else... 👀)</span>
-          </div>
-          <p className="mt-5 text-red-500 text-lg font-medium">Bouquets: {bouquetCount}</p>
-        </CardContent>
-      </Card>
+      <Card className="bg-gray-900 text-white p-8 border border-blue-700 shadow-xl w-96 relative z-50">
+  <CardContent className="flex flex-col items-center">
+    <p className="mb-5 text-red-600 text-xl font-semibold text-center">
+      Offer a bouquet to the fallen LinkedIn accounts
+    </p>
+    <div
+      className="bg-gray-900 hover:bg-gray-800 text-white text-xl py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 cursor-pointer text-center flex items-center justify-center space-x-2 pointer-events-auto"
+      onClick={() => {
+        console.log("bouquet clicked!"); // Debug log to verify click
+        setBouquetCount(bouquetCount + 1);
+      }}
+    >
+      <span>💐</span>
+      <span> Better offer a Bouquet (or else... 👀)</span>
+    </div>
+    <p className="mt-5 text-red-500 text-lg font-medium">Bouquets: {bouquetCount}</p>
+  </CardContent>
+</Card>
+
 
       {/* Chatbot Section */}
       <div className="mt-10 w-96">
