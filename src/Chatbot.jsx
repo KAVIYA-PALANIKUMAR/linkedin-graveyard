@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { askGemini } from "./utils/gemini";
-import "./chatbot.css"; // Updated CSS file
+import "./Chatbot.css"; // Updated CSS file
 
 function Chatbot() {
     const [messages, setMessages] = useState([]);
