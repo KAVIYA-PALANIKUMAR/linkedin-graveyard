@@ -18,9 +18,13 @@ export default function LinkedInGraveyard() {
   const [bouquetCount, setBouquetCount] = useState(0);
   const [activeEvents, setActiveEvents] = useState([]);  // Array to keep track of opened events
 
+  // Toggle event open/close
   const handleEventClick = (index) => {
-    // Add the event index to activeEvents if it's not already present
-    if (!activeEvents.includes(index)) {
+    if (activeEvents.includes(index)) {
+      // Remove to close
+      setActiveEvents(activeEvents.filter(i => i !== index));
+    } else {
+      // Add to open
       setActiveEvents([...activeEvents, index]);
     }
   };
@@ -99,7 +103,7 @@ export default function LinkedInGraveyard() {
           </p>
           <div
             className="bg-gray-900 hover:bg-gray-800 text-white text-xl py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 cursor-pointer text-center flex items-center justify-center space-x-2"
-            onClick={() => setBouquetCount(bouquetCount + 1)}
+            onClick={() => setBouquetCount(prev => prev + 1)}  /* functional update */
           >
             <span>💐</span>
             <span> Better offer a Bouquet (or else... 👀)</span>
